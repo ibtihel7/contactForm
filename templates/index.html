@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Contact {% endblock %}</title>
+</head>
+
+<body>
+<div class="formulaire">
+
+    <form action = "http://localhost:5000/result" method="POST">
+        <div class="contactheader">
+        <h1>Fiche de Contact</h1>
+    </div>
+        <div class="form-group" action="http://localhost:5000/" method="POST">
+            <i class="glyphicon glyphicon-user"></i>
+
+            <label for="nom">Nom:</label>
+            <input type="text" name="nom" placeholder="taper votre nom" class="form-control"
+                value="{{ request.form['nom'] }}"></input>
+                <hr>
+                <i class="glyphicon glyphicon-phone"></i>
+
+                <label for="nom">Téléphone:</label>
+                <input type="number" name="phone" placeholder="taper votre numero telephone" class="form-control"
+                    value="{{ request.form['phone'] }}"></input>
+                    <hr>
+
+
+                <label for="nom">Email</label>
+
+                <input type="email" name="email" placeholder="taper votre e-mail" class="form-control"
+                    value="{{ request.form['email'] }}"></input>
+                    <hr>
+                <i class="glyphicon glyphicon-envelope"></i>
+
+            <label for="nom">Message</label>
+
+            <textarea name="message" placeholder="Taper le message"
+                class="form-control">{{ request.form['message'] }}</textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="">Submit</button>
+        </div>
+        <img class="contactimage" src="/static/css/contact.jpg"
+        > 
+    
+    </form>
+   
+</div>
+</body>
+<footer><h4>Copy-right2021 HAMDI-IBTIHEL</h4></footer>
+</html>
